@@ -1,4 +1,3 @@
-#произведение
 def P(m,l,q):
   k = l
   p = 1
@@ -7,7 +6,6 @@ def P(m,l,q):
     k+=1
   return p
   
-#функция 
 def f1(m,n,q1,q2,p,S):
   l = 2
   S2 = 0
@@ -26,7 +24,6 @@ def f1(m,n,q1,q2,p,S):
   S3/=P(n,m+1,q2)
   return S1-S2-p-S3
  
-#дихотомия
 def MPD(f1,a,b,m,n,q2,p,S):
    while abs(b - a) > 10**(-6):
         q1 = (a + b) / 2.0      
@@ -41,10 +38,9 @@ def MPD(f1,a,b,m,n,q2,p,S):
           b = q1    
    return q1
    
-#расчет ставки   
 for row in exchange.head().itertuples():
   day_lower_rate=row.lower/365
-  #ввод данных
+
   S=1
   n=row.term
   r0=row.interest/12
@@ -53,12 +49,9 @@ for row in exchange.head().itertuples():
   q2=30*day_lower_rate
   a=0.3/365
   b=60/365
-  #вывод данных
+
   q1 = MPD(f1,a,b,m,n,q2,p,S)
   x=365*q1/30
-  #дневная ствка
-  print(q1) 
-  #годовая ствка
   print(x)
 
 dir_name = '/mnt/zeppelin-exchange/i.sabaev/'
